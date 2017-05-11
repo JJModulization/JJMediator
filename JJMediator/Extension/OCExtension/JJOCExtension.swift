@@ -8,6 +8,12 @@
 
 import Foundation
 
+/*
+ * Swift闭包想要通过字典或数组传值给Objective-C函数调用的步骤：
+ * 1.声明闭包时，添加关键词@convention(block)修饰;
+ * 2.用unsafeBitCast函数将Swift闭包转为Objective-C的兼容的对象
+ */
+
 // Target名称
 let ocTargetName = "OC";
 // Action名称
@@ -32,7 +38,7 @@ extension JJMediator {
     public func JJMediator_ocModuleMethod(withName name: String?, callback: (@convention(block) (String?) -> Void)?) {
         var parameters = JJDictionary()
         parameters["name"] = name
-        let callbackObject = unsafeBitCast(callback, to: AnyObject.self)
+        let callbackObject = unsafeBitCast(callback, to: AnyObject?.self)
         parameters["callback"] = callbackObject
         _ = self.performOC(targetName: ocTargetName, actionName: ocModuleMethodWithParametersName, parameters: parameters)
     }
