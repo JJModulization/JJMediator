@@ -33,9 +33,7 @@
 {
     OCModule *ocModule = [[OCModule alloc] init];
     NSString *name = parameters[@"name"];
-    void (^callback)(NSString *name) = ^(NSString *name) {
-        NSLog(@"111");
-    };
+    void (^callback)(NSString *name) = parameters[@"callback"];
     [ocModule moduleMethodWithName:name callback:callback];
     return nil;
 }

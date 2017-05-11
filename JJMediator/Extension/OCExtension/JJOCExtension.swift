@@ -29,10 +29,11 @@ extension JJMediator {
     }
     
     // 有入参无返回值
-    public func JJMediator_ocModuleMethod(withName name: String?, callback: ((String?) -> Void)?) {
+    public func JJMediator_ocModuleMethod(withName name: String?, callback: (@convention(block) (String?) -> Void)?) {
         var parameters = JJDictionary()
         parameters["name"] = name
-        parameters["callback"] = callback
+        let callbackObject = unsafeBitCast(callback, to: AnyObject.self)
+        parameters["callback"] = callbackObject
         _ = self.performOC(targetName: ocTargetName, actionName: ocModuleMethodWithParametersName, parameters: parameters)
     }
     
