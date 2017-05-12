@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "JJMediator/JJMediator/*.{swift}"
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "8.0"
   s.module_name  = 'JJMediator'
   # s.dependency "JSONKit", "~> 1.4"
 
