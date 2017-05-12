@@ -23,6 +23,7 @@ class MainTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let jjMediator = JJMediator.sharedInstance()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +45,6 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         cell.textLabel?.text = contentArray[indexPath.row]
-
         return cell
     }
     
