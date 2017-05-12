@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JJMediator"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "JJMediator Module"
 
   s.homepage     = "https://github.com/JJModulization/JJMediator.git"
