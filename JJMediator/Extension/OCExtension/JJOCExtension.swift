@@ -47,7 +47,12 @@ extension JJMediator {
     public func JJMediator_ocFetchNumberFromModuleMethod(withNumber number: Int) -> Int {
         var parameters = Dictionary<String, Any>()
         parameters["number"] = number
-        return self.perform(targetName: ocTargetName, actionName: ocFetchNumberFromModuleMethodWithParametersName, parameters: parameters) as! Int
+        let result = self.perform(targetName: ocTargetName, actionName: ocFetchNumberFromModuleMethodWithParametersName, parameters: parameters) as? NSNumber
+        if let result = result {
+            return result.intValue
+        } else {
+            return 0
+        }
     }
     
 }
